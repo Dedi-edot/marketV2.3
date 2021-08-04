@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Market V2.3</title>
+    <script src="./index.js" defer></script>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 10px;
+      }
+      form {
+        max-width: 80%;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center">MARKET V2.3</h1>
+    <form>
+      <!-- FILTER-->
+      <fieldset>
+        <legend>Filter</legend>
+        <p>
+          Name :
+          <input
+            type="text"
+            name="txtfilter"
+            id="nameFilter"
+            oninput="fnFilterName()"
+          />
+        </p>
+        <p>
+          Price :
+          <input
+            type="number"
+            name="txtfilter"
+            id="min"
+            placeholder="Min"
+            onkeyup="fnFilterPrice()"
+          />
+          -
+          <input
+            type="number"
+            name="txtfilter"
+            id="max"
+            placeholder="Max"
+            onkeyup="fnFilterPrice()"
+          />
+        </p>
+        <p>
+          Category :
+          <select id="catFilter" onclick="fnFilterCategory()">
+            <!-- isi dengan fungsi render-->
+          </select>
+        </p>
+        <p><input type="reset" value="Reset" onclick="fnResetFilter()" /></p>
+      </fieldset>
+
+      <!-- INPUT DATA-->
+      <fieldset>
+        <legend>Input Data</legend>
+        <table>
+          <td><input type="text" id="nameInput" placeholder="Name" /></td>
+          <td><input type="number" id="priceInput" placeholder="Price" /></td>
+          <td>
+            <select id="catInput">
+              <!-- isi dengan fungsi render-->
+            </select>
+          </td>
+          <td><input type="text" id="stock" placeholder="Stock" /></td>
+        </table>
+        <input type="button" value="Input" onclick="fnInputData()" />
+      </fieldset>
+
+      <!-- RENDER-->
+      <fieldset>
+        <legend>Data Table</legend>
+        <table>
+          <thead>
+            <th>Id</th>
+            <th>Category</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Buy</th>
+            <th colspan="2">Action</th>
+          </thead>
+          <tbody id="render">
+            <!-- isi dengan fungsi render-->
+          </tbody>
+        </table>
+      </fieldset>
+
+      <!-- RENDER Carts-->
+      <fieldset>
+        <legend>Cart</legend>
+        <table>
+          <thead>
+            <th>Id</th>
+            <th>Category</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Action</th>
+          </thead>
+          <tbody id="renderCart">
+            <!-- isi dengan fungsi render-->
+          </tbody>
+        </table>
+        <input type="button" value="Payment" onclick="fnPayment()" />
+      </fieldset>
+
+      <!-- RENDER Carts-->
+      <fieldset>
+        <legend>Payment</legend>
+        <h2>Transaction Detail</h2>
+        <div id="payment">
+          <!-- Ruang untuk input data payment-->
+        </div>
+        <div id="pay" hidden>
+          <h3 id="subTotal"></h3>
+          <h3 id="ppn"></h3>
+          <h3 id="totalPrice"></h3>
+          <h3 id="totalPrice2" hidden></h3>
+          <button id="btn-pay" onclick="fnPay()">Pay</button>
+        </div>
+      </fieldset>
+    </form>
+    <div style="height: 500px"></div>
+  </body>
+</html>
